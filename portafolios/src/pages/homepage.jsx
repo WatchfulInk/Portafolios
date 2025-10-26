@@ -41,7 +41,7 @@ function Homepage() {
           className="pointer-events-auto"
         />
       </div>
-
+      {/* Text of Introduction */}
       <div className="relative" style={{ zIndex: 10 }}>
         <Navbar />
         <div className="flex flex-col items-start justify-center text-center m-auto h-[45vh] sm:h-[50vh] md:h-[75vh] px-4 sm:px-8 md:px-16 lg:px-[10vh]">
@@ -61,6 +61,7 @@ function Homepage() {
           />  
         </div>
       </div>
+      {/* Logos at the bottom */}
       <div className="absolute bottom-4 w-full flex items-center justify-center py-10">
         <LogoLoop
           logos={techLogos}
