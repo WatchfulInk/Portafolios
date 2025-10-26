@@ -16,26 +16,26 @@ const navigation = [
 
 function Navbar() {
   return (
-    <nav className="bg-neutral-800 p-5 sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-95">
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-4">
+    <nav className="bg-neutral-800 p-3 sm:p-5 sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-95">
+      <div className="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto px-2 sm:px-4 gap-3 sm:gap-0">
         
         {/* Logo/Perfil */}
         <div className="flex items-center group cursor-pointer">
           <img
             src={perfil}
             alt="Foto de perfil"
-            className="w-12 h-12 rounded-full object-cover shadow-lg border-4 border-white transition-transform duration-300 group-hover:scale-110 group-hover:border-green-400"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover shadow-lg border-2 sm:border-4 border-white transition-transform duration-300 group-hover:scale-110 group-hover:border-green-400"
           />
         </div>
 
         {/* Navigation Links */}
-        <ul className="flex items-center space-x-1 font-opensans text-white font-bold">
+        <ul className="flex flex-wrap items-center justify-center gap-1 sm:space-x-1 font-opensans text-white font-bold text-xs sm:text-sm md:text-base">
           {navigation.map((item, index) => (
             <li key={item.name}>
               <a 
                 href={item.href} 
                 className={clsx(
-                  "relative px-4 py-2 rounded-lg transition-all duration-300 block overflow-hidden group",
+                  "relative px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all duration-300 block overflow-hidden group",
                   {
                     'hover:text-green-400  hover:bg-opacity-30': item.current,
                     'hover:text-red-400  hover:bg-opacity-20': !item.current
@@ -64,6 +64,7 @@ function Navbar() {
                   threshold={0}
                   rootMargin="0px"
                   ease="back.out(1.2)"
+
                 />
               </a>
             </li>
