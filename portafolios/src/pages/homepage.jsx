@@ -3,6 +3,7 @@ import Navbar from '../components/navbar';
 import DotGrid from './../components/animations/dotgrid.jsx';
 import SplitText from '../components/animations/splittext.jsx';
 import { LogoLoop } from '../components/animations/LogoLoop.jsx';
+import MyPhoto from '../components/MyPhoto.jsx';
 import { SiReact, SiTailwindcss, SiMysql, SiPython, SiDjango, SiGit, SiGithub, SiPostman, SiFigma,  SiJavascript } from 'react-icons/si';
 
 const techLogos = [
@@ -29,14 +30,14 @@ function Homepage() {
         style={{ zIndex: 0 }}
       >
         <DotGrid
-          dotSize={3}
-          gap={20}
+          dotSize={2}
+          gap={25}
           baseColor="#2E2E2E"   
           activeColor="#00FF40" 
-          proximity={150}
-          shockRadius={300}
-          shockStrength={3}
-          resistance={500}
+          proximity={100}
+          shockRadius={200}
+          shockStrength={2}
+          resistance={400}
           returnDuration={2.0}
           className="pointer-events-auto"
         />
@@ -44,33 +45,49 @@ function Homepage() {
       {/* Text of Introduction */}
       <div className="relative" style={{ zIndex: 10 }}>
         <Navbar />
-        <div className="flex flex-col items-start justify-center text-center m-auto h-[45vh] sm:h-[50vh] md:h-[75vh] px-4 sm:px-8 md:px-16 lg:px-[10vh]">
-
-          <SplitText
-          text={"Alan Hernandez"}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 font-opensans"
-          delay={15}
-          duration={0.8}
-          />  
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between text-center lg:text-left m-auto min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] lg:h-[75vh] px-4 sm:px-8 md:px-16 lg:px-[10vh] gap-6 lg:gap-8 py-4">
           
-          <SplitText
-          text={"Software Development Engineer"}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-300 font-bold font-opensans"
-          delay={15}
-          duration={0.8}
-          />  
+          {/* Contenido de texto */}
+          <div className="flex flex-col items-center lg:items-start">
+            <SplitText
+            text={"Alan Hernandez"}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 lg:mb-4 font-opensans leading-tight"
+            delay={15}
+            duration={0.8}
+            />  
+            
+            <SplitText
+            text={"Software Development Engineer"}
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-gray-300 font-bold font-opensans leading-tight"
+            delay={15}
+            duration={0.8}
+            />  
+          </div>
+
+          {/* Componente MyPhoto - responsive para todas las pantallas */}
+          <div className="flex justify-center lg:justify-end w-full lg:w-auto mt-6 lg:mt-0 lg:px-20">
+            <MyPhoto 
+              imageSrc="/src/assets/me.png"
+              badges={[
+                  "Efficient algorithms",
+                  "Structured logic",
+                  "Agile development"
+              ]}
+            />
+          </div>
         </div>
       </div>
       {/* Logos at the bottom */}
-      <div className="absolute bottom-4 w-full flex items-center justify-center py-10">
+      <div className="absolute bottom-2 sm:bottom-4 w-full flex items-center justify-center py-4 sm:py-6 lg:py-10">
         <LogoLoop
           logos={techLogos}
-          speed={50}
+          speed={40}
           direction="right"
-          logoHeight={48}
-          gap={40}
+          logoHeight={32}
+          gap={24}
           pauseOnHover
           scaleOnHover
+          className="sm:scale-110 lg:scale-125"
         />
        </div>
     </div>

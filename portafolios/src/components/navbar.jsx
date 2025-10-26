@@ -1,23 +1,47 @@
 import clsx from "clsx";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { gsap } from "gsap";
 import SplitText from "./animations/splittext";
 import perfil from "../assets/perfil.png";
 
 // Navigation links for the navbar
 const navigation = [
   { name: 'Home', href: '/' , current: true },
-  { name: 'About me', href: '/Aboutme', current: false },
+  { name: 'About me', href: '/Aboutme', current: true },
   { name: 'Projects', href: '/Projects', current: false },
-  { name: 'Knowledge', href: '/Knowledge', current: false },
-  { name: 'Experience', href: '/Experience', current: false },
-  { name: 'Certifications', href: '/Certifications', current: false },
-  { name: 'Contact', href: '/Contact', current: false },
+  { name: 'Knowledge', href: '/Knowledge', current: true },
+  { name: 'Experience', href: '/Experience', current: true },
+  { name: 'Certifications', href: '/Certifications', current: true },
+  { name: 'Contact', href: '/Contact', current: true },
 ];
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Animación del menú móvil con GSAP
+  useEffect(() => {
+    const menuItems = document.querySelectorAll('.mobile-menu-item');
+    
+    if (isMenuOpen) {
+      gsap.fromTo('.mobile-menu', 
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }
+      );
+      
+      gsap.fromTo(menuItems,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0, duration: 0.4, stagger: 0.1, delay: 0.1, ease: "back.out(1.7)" }
+      );
+    }
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="bg-neutral-800 p-3 sm:p-5 sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-95">
-      <div className="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto px-2 sm:px-4 gap-3 sm:gap-0">
+      <div className="flex justify-between items-center max-w-7xl mx-auto px-2 sm:px-4">
         
         {/* Logo/Perfil */}
         <div className="flex items-center group cursor-pointer">
@@ -28,14 +52,14 @@ function Navbar() {
           />
         </div>
 
-        {/* Navigation Links */}
-        <ul className="flex flex-wrap items-center justify-center gap-1 sm:space-x-1 font-opensans text-white font-bold text-xs sm:text-sm md:text-base">
+        {/* Desktop Navigation Links */}
+        <ul className="hidden md:flex items-center space-x-1 font-opensans text-white font-bold">
           {navigation.map((item, index) => (
             <li key={item.name}>
               <a 
                 href={item.href} 
                 className={clsx(
-                  "relative px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all duration-300 block overflow-hidden group",
+                  "relative px-4 py-2 rounded-lg transition-all duration-300 block overflow-hidden group",
                   {
                     'hover:text-green-400  hover:bg-opacity-30': item.current,
                     'hover:text-red-400  hover:bg-opacity-20': !item.current
@@ -64,13 +88,57 @@ function Navbar() {
                   threshold={0}
                   rootMargin="0px"
                   ease="back.out(1.2)"
-
                 />
               </a>
             </li>
           ))}
         </ul>
+
+        {/* Mobile menu button */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none group"
+          aria-label="Toggle menu"
+        >
+          <span className={clsx(
+            "w-6 h-0.5 bg-white transition-all duration-300 transform origin-center",
+            isMenuOpen ? "rotate-45 translate-y-1" : ""
+          )}></span>
+          <span className={clsx(
+            "w-6 h-0.5 bg-white transition-all duration-300",
+            isMenuOpen ? "opacity-0" : ""
+          )}></span>
+          <span className={clsx(
+            "w-6 h-0.5 bg-white transition-all duration-300 transform origin-center",
+            isMenuOpen ? "-rotate-45 -translate-y-1" : ""
+          )}></span>
+        </button>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {isMenuOpen && (
+        <div className="mobile-menu md:hidden mt-4 pb-4">
+          <ul className="flex flex-col space-y-2 font-opensans text-white font-bold">
+            {navigation.map((item, index) => (
+              <li key={item.name} className="mobile-menu-item">
+                <a 
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={clsx(
+                    "block px-4 py-3 rounded-lg transition-all duration-300 hover:bg-green-600 hover:text-white hover:bg-opacity-10",
+                    {
+                      'text-green-500 bg-neutral-700 bg-opacity-10': item.current,
+                      'hover:text-red-400 hover:bg-red-500 bg-rose-700': !item.current
+                    }
+                  )}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
