@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import SplitText from './animations/splittext.jsx';
 
 const MyPhoto = ({ 
-  imageSrc = "/src/assets/perfil.png", 
+  imageSrc = '../assets/me.png', 
   badges = []
 }) => {
   const containerRef = useRef(null);
