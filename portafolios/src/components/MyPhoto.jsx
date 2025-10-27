@@ -7,38 +7,66 @@ const MyPhoto = ({
   badges = []
 }) => {
   const containerRef = useRef(null);
-  const badgeRefs = useRef([]);
+  const mobileBadgeRefs = useRef([]);
+  const desktopBadgeRefs = useRef([]);
 
   useEffect(() => {
-    // Animación de las viñetas verdes con GSAP
-    badgeRefs.current.forEach((badge, index) => {
+    // Limpiar animaciones previas
+    gsap.killTweensOf([...mobileBadgeRefs.current, ...desktopBadgeRefs.current]);
+    
+    // Animación de las viñetas móviles
+    mobileBadgeRefs.current.forEach((badge, index) => {
       if (badge) {
-        // Animación de flotación suave
+        // Reset inicial
+        gsap.set(badge, { opacity: 0, scale: 0.8, y: -10 });
+        
+        // Animación de entrada
+        gsap.to(badge, {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.6,
+          delay: 1.2 + (index * 0.2),
+          ease: "back.out(1.7)"
+        });
+
+        // Animación de flotación
+        gsap.to(badge, {
+          y: -4,
+          duration: 2 + (index * 0.3),
+          ease: "power2.inOut",
+          repeat: -1,
+          yoyo: true,
+          delay: 2 + (index * 0.5)
+        });
+      }
+    });
+
+    // Animación de las viñetas desktop
+    desktopBadgeRefs.current.forEach((badge, index) => {
+      if (badge) {
+        // Reset inicial
+        gsap.set(badge, { opacity: 0, scale: 0.8, x: -20 });
+        
+        // Animación de entrada
+        gsap.to(badge, {
+          opacity: 1,
+          scale: 1,
+          x: 0,
+          duration: 0.6,
+          delay: 1.2 + (index * 0.2),
+          ease: "back.out(1.7)"
+        });
+
+        // Animación de flotación
         gsap.to(badge, {
           y: -8,
           duration: 2 + (index * 0.3),
           ease: "power2.inOut",
           repeat: -1,
           yoyo: true,
-          delay: index * 0.5
+          delay: 2 + (index * 0.5)
         });
-
-        // Animación de entrada inicial
-        gsap.fromTo(badge, 
-          { 
-            opacity: 0, 
-            scale: 0.8, 
-            x: -20 
-          },
-          { 
-            opacity: 1, 
-            scale: 1, 
-            x: 0, 
-            duration: 0.6, 
-            delay: 1.2 + (index * 0.2),
-            ease: "back.out(1.7)" 
-          }
-        );
       }
     });
 
@@ -61,7 +89,12 @@ const MyPhoto = ({
         }
       );
     }
-  }, []);
+
+    // Cleanup function
+    return () => {
+      gsap.killTweensOf([...mobileBadgeRefs.current, ...desktopBadgeRefs.current]);
+    };
+  }, [badges]);
 
   return (
     <div 
@@ -73,7 +106,9 @@ const MyPhoto = ({
         {badges.map((text, index) => (
           <div
             key={`mobile-${index}`}
-            ref={el => badgeRefs.current[index] = el}
+            ref={el => {
+              if (el) mobileBadgeRefs.current[index] = el;
+            }}
             className="bg-green-400 text-black px-2 py-1 rounded-full font-bold text-xs shadow-lg cursor-pointer hover:bg-green-300 transition-colors duration-200"
             style={{ zIndex: 5 }}
           >
@@ -81,7 +116,7 @@ const MyPhoto = ({
               text={text}
               tag="span"
               className="inline-block"
-              delay={2000 + (index * 100)}
+              delay={2200 + (index * 100)}
               duration={0.4}
               splitType="words"
               from={{ opacity: 0, y: 10 }}
@@ -96,7 +131,7 @@ const MyPhoto = ({
       {/* Contenedor de imagen con viñetas flotantes para desktop */}
       <div className="relative flex items-center justify-center">
         <div 
-          className="profile-image w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-full overflow-hidden border-2 sm:border-3 lg:border-4 border-white shadow-2xl bg-gradient-to-br from-pink-100 to-blue-100"
+          className="profile-image w-40 h-40 sm:w-52 sm:h-52 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 sm:border-3 lg:border-4 border-white shadow-2xl bg-gradient-to-br from-pink-100 to-blue-100"
           style={{
             background: 'linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%)'
           }}
@@ -114,14 +149,12 @@ const MyPhoto = ({
             <div
               key={`desktop-${index}`}
               ref={el => {
-                if (badgeRefs.current.length <= badges.length) {
-                  badgeRefs.current[index + badges.length] = el;
-                }
+                if (el) desktopBadgeRefs.current[index] = el;
               }}
               className={`absolute bg-green-400 text-black px-4 py-2 rounded-full font-bold text-sm shadow-lg cursor-pointer hover:bg-green-300 transition-colors duration-200 ${
-                index === 0 ? 'top-2 -right-12' :
+                index === 0 ? 'top-1 -right-12' :
                 index === 1 ? 'bottom-4 -left-16' :
-                'top-20 -right-20'
+                'top-35 -right-20'
               }`}
               style={{
                 whiteSpace: 'nowrap',
@@ -132,7 +165,7 @@ const MyPhoto = ({
                 text={text}
                 tag="span"
                 className="inline-block"
-                delay={2000 + (index * 100)}
+                delay={2200 + (index * 100)}
                 duration={0.4}
                 splitType="words"
                 from={{ opacity: 0, y: 10 }}

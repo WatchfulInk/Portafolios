@@ -65,7 +65,7 @@ function Homepage() {
           </div>
 
           {/* Componente MyPhoto - responsive para todas las pantallas */}
-          <div className="flex justify-center lg:justify-end w-full lg:w-auto mt-6 lg:mt-0 lg:px-20">
+          <div className="flex justify-center lg:justify-end w-full lg:w-auto mt-6 lg:mt-0 lg:px-30">
             <MyPhoto 
               imageSrc="/src/assets/me.png"
               badges={[
