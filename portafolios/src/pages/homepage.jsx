@@ -4,6 +4,7 @@ import DotGrid from './../components/animations/dotgrid.jsx';
 import SplitText from '../components/animations/splittext.jsx';
 import { LogoLoop } from '../components/animations/LogoLoop.jsx';
 import MyPhoto from '../components/MyPhoto.jsx';
+import meImage from '../assets/me.png';
 import { SiReact, SiTailwindcss, SiMysql, SiPython, SiDjango, SiGit, SiGithub, SiPostman, SiFigma,  SiJavascript } from 'react-icons/si';
 
 const techLogos = [
@@ -67,7 +68,7 @@ function Homepage() {
           {/* Componente MyPhoto - responsive para todas las pantallas */}
           <div className="flex justify-center lg:justify-end w-full lg:w-auto mt-6 lg:mt-0 lg:px-30">
             <MyPhoto 
-              imageSrc="/src/assets/me.png"
+              imageSrc={meImage}
               badges={[
                   "Efficient algorithms",
                   "Structured logic",
