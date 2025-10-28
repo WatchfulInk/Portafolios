@@ -1,22 +1,24 @@
 import clsx from "clsx";
 import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
+import { Link, useLocation } from "react-router-dom";
 import SplitText from "./animations/splittext";
 import perfil from "../assets/perfil.png";
 
 // Navigation links for the navbar
 const navigation = [
-  { name: 'Home', href: '/' , current: true },
-  { name: 'About me', href: '/Aboutme', current: true },
-  { name: 'Projects', href: '/Projects', current: false },
-  { name: 'Knowledge', href: '/Knowledge', current: true },
-  { name: 'Experience', href: '/Experience', current: true },
-  { name: 'Certifications', href: '/Certifications', current: true },
-  { name: 'Contact', href: '/Contact', current: true },
+  { name: 'Home', href: '/Portafolios/' },
+  { name: 'About me', href: '/Portafolios/Aboutme' },
+  { name: 'Projects', href: '/Portafolios/Projects' },
+  { name: 'Knowledge', href: '/Portafolios/Knowledge' },
+  { name: 'Experience', href: '/Portafolios/Experience' },
+  { name: 'Certifications', href: '/Portafolios/Certifications' },
+  { name: 'Contact', href: '/Portafolios/Contact' },
 ];
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   // Animación del menú móvil con GSAP
   useEffect(() => {
@@ -54,44 +56,47 @@ function Navbar() {
 
         {/* Desktop Navigation Links */}
         <ul className="hidden md:flex items-center space-x-1 font-opensans text-white font-bold">
-          {navigation.map((item, index) => (
-            <li key={item.name}>
-              <a 
-                href={item.href} 
-                className={clsx(
-                  "relative px-4 py-2 rounded-lg transition-all duration-300 block overflow-hidden group",
-                  {
-                    'hover:text-green-400  hover:bg-opacity-30': item.current,
-                    'hover:text-red-400  hover:bg-opacity-20': !item.current
-                  }
-                )}
-              >
-                {/* Underline effect */}
-                <span className={clsx(
-                  "absolute bottom-0 left-0 w-full h-0.5 transition-all duration-300",
-                  {
-                    'bg-green-400 scale-x-0 group-hover:scale-x-100': item.current,
-                    'bg-red-400 scale-x-0 group-hover:scale-x-100': !item.current
-                  }
-                )} />
+          {navigation.map((item, index) => {
+            const isCurrentPage = location.pathname === item.href || (location.pathname === '/' && item.href === '/Portafolios/');
+            return (
+              <li key={item.name}>
+                <Link 
+                  to={item.href} 
+                  className={clsx(
+                    "relative px-4 py-2 rounded-lg transition-all duration-300 block overflow-hidden group",
+                    {
+                      'text-green-400': isCurrentPage,
+                      'hover:text-green-400 hover:bg-opacity-30': !isCurrentPage,
+                    }
+                  )}
+                >
+                  {/* Underline effect */}
+                  <span className={clsx(
+                    "absolute bottom-0 left-0 w-full h-0.5 transition-all duration-300",
+                    {
+                      'bg-green-400 scale-x-100': isCurrentPage,
+                      'bg-green-400 scale-x-0 group-hover:scale-x-100': !isCurrentPage,
+                    }
+                  )} />
 
-                {/* Animated Text */}
-                <SplitText
-                  text={item.name}
-                  tag="span"
-                  className="inline-block relative z-10"
-                  delay={40 + (index * 20)}
-                  duration={0.6}
-                  splitType="chars"
-                  from={{ opacity: 0, y: 20, rotationX: -90 }}
-                  to={{ opacity: 1, y: 0, rotationX: 0 }}
-                  threshold={0}
-                  rootMargin="0px"
-                  ease="back.out(1.2)"
-                />
-              </a>
-            </li>
-          ))}
+                  {/* Animated Text */}
+                  <SplitText
+                    text={item.name}
+                    tag="span"
+                    className="inline-block relative z-10"
+                    delay={40 + (index * 20)}
+                    duration={0.6}
+                    splitType="chars"
+                    from={{ opacity: 0, y: 20, rotationX: -90 }}
+                    to={{ opacity: 1, y: 0, rotationX: 0 }}
+                    threshold={0}
+                    rootMargin="0px"
+                    ease="back.out(1.2)"
+                  />
+                </Link>
+              </li>
+            )
+          })}
         </ul>
 
         {/* Mobile menu button */}
@@ -119,23 +124,26 @@ function Navbar() {
       {isMenuOpen && (
         <div className="mobile-menu md:hidden mt-4 pb-4">
           <ul className="flex flex-col space-y-2 font-opensans text-white font-bold">
-            {navigation.map((item, index) => (
-              <li key={item.name} className="mobile-menu-item">
-                <a 
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={clsx(
-                    "block px-4 py-3 rounded-lg transition-all duration-300 hover:bg-green-600 hover:text-white hover:bg-opacity-10",
-                    {
-                      'text-green-500 bg-neutral-700 bg-opacity-10': item.current,
-                      'hover:text-red-400 hover:bg-red-500 bg-rose-700': !item.current
-                    }
-                  )}
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
+            {navigation.map((item, index) => {
+              const isCurrentPage = location.pathname === item.href || (location.pathname === '/' && item.href === '/Portafolios/');
+              return (
+                <li key={item.name} className="mobile-menu-item">
+                  <Link 
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={clsx(
+                      "block px-4 py-3 rounded-lg transition-all duration-300",
+                      {
+                        'text-green-400 bg-neutral-700 bg-opacity-20': isCurrentPage,
+                        'hover:text-green-400 hover:bg-green-400 hover:bg-opacity-10': !isCurrentPage
+                      }
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       )}
