@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/navbar';
 import DotGrid from '../components/animations/dotgrid.jsx';
+import SplitText from '../components/animations/splittext.jsx';
 
 function Projects() {
   return (
@@ -30,12 +31,13 @@ function Projects() {
         
         <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 font-opensans">
-              Projects
-            </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              TEXTO DE EJEMPLO :V
-            </p>
+            <SplitText
+            text={"Projects"}
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-gray-300 font-bold font-opensans leading-tight"
+            delay={20}
+            duration={0.8}
+            splitType='words'
+            />  
           </div>
 
           {/* Projects grid will go here */}
