@@ -5,7 +5,7 @@ import SplitText from '../components/animations/splittext.jsx';
 
 function Certifications() {
   return (
-    <div className="bg-[#0B0614] min-h-screen text-white relative overflow-hidden">
+    <div className="bg-[#0B0614] min-h-screen text-white relative overflow-hidden page-container">
       {/* Background animation */}
       <div 
         className="fixed inset-0 w-full h-full pointer-events-none"
@@ -32,7 +32,16 @@ function Certifications() {
         <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-12">
           <div className="text-center mb-12">
             <SplitText
-            text={"Certifications"}
+            text={"Certificates & Awards"}
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-gray-300 font-bold font-opensans leading-tight"
+            delay={20}
+            duration={0.8}
+            splitType='words'
+            />  
+          </div>
+          <div className="text-center mb-12">
+            <SplitText
+            text={"TOP"}
             className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-gray-300 font-bold font-opensans leading-tight"
             delay={20}
             duration={0.8}
@@ -41,6 +50,48 @@ function Certifications() {
           </div>
 
           {/* Certifications grid will go here */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
+                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🏆</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Logistics and supply chain</h3>
+                <p className="text-gray-300 mb-2">Tecmilenio University</p>
+                <span className="text-green-400 text-sm">2025</span>
+              </div>
+              
+              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
+                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">📜</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">AWS Data Engineering</h3>
+                <p className="text-gray-300 mb-2">AWS Academy / Tecmilenio University</p>
+                <span className="text-green-400 text-sm">2025</span>
+              </div>
+              
+              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
+                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🎓</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">DevOps</h3>
+                <p className="text-gray-300 mb-2">Tecmilenio University</p>
+                <span className="text-green-400 text-sm">In Progress</span>
+              </div>
+            </div>
+          </div>
+
+            <div className="text-center mb-12 py-12">
+            <SplitText
+            text={"ALL"}
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-gray-300 font-bold font-opensans leading-tight"
+            delay={20}
+            duration={0.8}
+            splitType='words'
+            />  
+            </div>
+        
+        {/* Certifications grid will go here */}
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
@@ -69,8 +120,37 @@ function Certifications() {
                 <p className="text-gray-300 mb-2">Institución</p>
                 <span className="text-green-400 text-sm">2021</span>
               </div>
+
+              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
+                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🎓</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Certificación 3</h3>
+                <p className="text-gray-300 mb-2">Institución</p>
+                <span className="text-green-400 text-sm">2021</span>
+              </div>
+              
+              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
+                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🎓</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Certificación 3</h3>
+                <p className="text-gray-300 mb-2">Institución</p>
+                <span className="text-green-400 text-sm">2021</span>
+              </div>
+              
+              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
+                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🎓</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Certificación 3</h3>
+                <p className="text-gray-300 mb-2">Institución</p>
+                <span className="text-green-400 text-sm">2021</span>
+              </div>
+              
             </div>
           </div>
+
         </div>
       </div>
     </div>

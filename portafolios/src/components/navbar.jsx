@@ -10,7 +10,6 @@ const navigation = [
   { name: 'Home', href: '/Portafolios/' },
   { name: 'About me', href: '/Portafolios/Aboutme' },
   { name: 'Projects', href: '/Portafolios/Projects' },
-  { name: 'Knowledge', href: '/Portafolios/Knowledge' },
   { name: 'Experience', href: '/Portafolios/Experience' },
   { name: 'Certifications', href: '/Portafolios/Certifications' },
   { name: 'Contact', href: '/Portafolios/Contact' },
@@ -42,7 +41,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-neutral-800 p-3 sm:p-5 sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-95">
+    <nav className="bg-neutral-800 px-3 sm:px-5 pt-3 sm:pt-4 md:pt-5 pb-3 sm:pb-4 md:pb-5 fixed top-0 left-0 right-0 w-full z-50 shadow-lg backdrop-blur-sm bg-opacity-95">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-2 sm:px-4">
         
         {/* Logo/Perfil */}

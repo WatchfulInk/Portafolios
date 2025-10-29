@@ -5,7 +5,7 @@ import SplitText from '../components/animations/splittext.jsx';
 
 function Contact() {
   return (
-    <div className="bg-[#0B0614] min-h-screen text-white relative overflow-hidden">
+    <div className="bg-[#0B0614] min-h-screen text-white relative overflow-hidden page-container">
       {/* Background animation */}
       <div 
         className="fixed inset-0 w-full h-full pointer-events-none"
