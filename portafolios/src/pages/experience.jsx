@@ -52,7 +52,7 @@ function Experience() {
               <div className="bg-[#060010] border border-[#392e4e] rounded-[20px] p-6 lg:p-8 shadow-2xl backdrop-blur-sm hover:shadow-[0_12px_35px_rgba(0,255,64,0.15)] transition-all duration-300 min-h-[320px] lg:min-h-[350px]">
                 
                 {/* MyLogos sobresaliendo en esquina superior derecha */}
-                <div className="absolute -top-12 -right-8 lg:-top-16 lg:-right-12 z-20">
+                <div className="absolute -top-10 -right-9 lg:-top-5 lg:-right-12 z-20 scale-75 lg:scale-100">
                   <MyLogos 
                     imageSrc={bansiLogo} 
                     badges={['C#', 'SQL Server', 'Informix']}
@@ -61,7 +61,7 @@ function Experience() {
                 </div>
 
                 {/* Contenido de la card */}
-                <div className="pr-0 lg:pr-60">
+                <div className="pr-20 sm:pr-32 lg:pr-60">
                   <div className="mb-6">
                     <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2">Software Engineer Internship</h3>
                     <h4 className="text-lg lg:text-xl xl:text-2xl text-green-400 font-semibold mb-2">Bansi S.A.</h4>
@@ -95,7 +95,7 @@ function Experience() {
               <div className="bg-[#060010] border border-[#392e4e] rounded-[20px] p-6 lg:p-8 shadow-2xl backdrop-blur-sm hover:shadow-[0_12px_35px_rgba(0,255,64,0.15)] transition-all duration-300 min-h-[360px] lg:min-h-[400px]">
                 
                 {/* MyLogos sobresaliendo en esquina superior derecha */}
-                <div className="absolute -top-12 -right-8 lg:-top-16 lg:-right-12 z-20">
+                <div className="absolute -top-10 -right-9 lg:-top-5 lg:-right-12 z-20 scale-75 lg:scale-100">
                   <MyLogos 
                     imageSrc={jabilLogo} 
                     badges={['SAP ERP', 'Inventory Management', 'Logistics']}
@@ -104,7 +104,7 @@ function Experience() {
                 </div>
 
                 {/* Contenido de la card */}
-                <div className="pr-0 lg:pr-60">
+                <div className="pr-20 sm:pr-32 lg:pr-60">
                   <div className="mb-6">
                     <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2">Inventory Control Leader</h3>
                     <h4 className="text-lg lg:text-xl xl:text-2xl text-green-400 font-semibold mb-2">Jabil</h4>
@@ -142,7 +142,7 @@ function Experience() {
               <div className="bg-[#060010] border border-[#392e4e] rounded-[20px] p-6 lg:p-8 shadow-2xl backdrop-blur-sm hover:shadow-[0_12px_35px_rgba(0,255,64,0.15)] transition-all duration-300 min-h-[320px] lg:min-h-[350px]">
                 
                 {/* MyLogos sobresaliendo en esquina superior derecha */}
-                <div className="absolute -top-12 -right-8 lg:-top-16 lg:-right-12 z-20">
+                <div className="absolute -top-10 -right-9 lg:-top-5 lg:-right-12 z-20 scale-75 lg:scale-100">
                   <MyLogos 
                     imageSrc={caritasLogo} 
                     badges={['HTML', 'CSS', 'JavaScript']}
@@ -151,7 +151,7 @@ function Experience() {
                 </div>
 
                 {/* Contenido de la card */}
-                <div className="pr-0 lg:pr-60">
+                <div className="pr-20 sm:pr-32 lg:pr-60">
                   <div className="mb-6">
                     <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2">Web Developer</h3>
                     <h4 className="text-lg lg:text-xl xl:text-2xl text-green-400 font-semibold mb-2">Caritas GDL</h4>

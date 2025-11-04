@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/navbar';
 import DotGrid from '../components/animations/dotgrid.jsx';
 import SplitText from '../components/animations/splittext.jsx';
+import MagicCard from '../components/animations/magiccard.jsx';
 
 function Certifications() {
   return (
@@ -52,32 +53,42 @@ function Certifications() {
           {/* Certifications grid will go here */}
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">🏆</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Logistics and supply chain</h3>
-                <p className="text-gray-300 mb-2">Tecmilenio University</p>
-                <span className="text-green-400 text-sm">2025</span>
-              </div>
+              <MagicCard
+                icon="🏆"
+                title="Logistics and supply chain"
+                institution="Tecmilenio University"
+                year="2025"
+                enableStars={false}
+                enableTilt={false}
+                enableMagnetism={true}
+                enableBorderGlow={false}
+              />
               
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">📜</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">AWS Data Engineering</h3>
-                <p className="text-gray-300 mb-2">AWS Academy / Tecmilenio University</p>
-                <span className="text-green-400 text-sm">2025</span>
-              </div>
+              <MagicCard
+                icon="📜"
+                title="AWS Data Engineering"
+                institution="AWS Academy / Tecmilenio University"
+                year="2025"
+                enableStars={false}
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                glowColor="0, 255, 64"
+                enableBorderGlow={false}
+              />
               
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">🎓</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">DevOps</h3>
-                <p className="text-gray-300 mb-2">Tecmilenio University</p>
-                <span className="text-green-400 text-sm">In Progress</span>
-              </div>
+              <MagicCard
+                icon="🎓"
+                title="DevOps"
+                institution="Tecmilenio University"
+                year="In Progress"
+                enableStars={false}
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                glowColor="0, 255, 64"
+                enableBorderGlow={false}
+              />
             </div>
           </div>
 
@@ -94,59 +105,83 @@ function Certifications() {
         {/* Certifications grid will go here */}
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">🏆</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Certificación 1</h3>
-                <p className="text-gray-300 mb-2">Institución</p>
-                <span className="text-green-400 text-sm">2023</span>
-              </div>
+              <MagicCard
+                icon="🏆"
+                title="Certificación 1"
+                institution="Institución"
+                year="2023"
+                enableStars={false}
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                glowColor="0, 255, 64"
+                enableBorderGlow={false}
+              />
               
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">📜</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Certificación 2</h3>
-                <p className="text-gray-300 mb-2">Institución</p>
-                <span className="text-green-400 text-sm">2022</span>
-              </div>
+              <MagicCard
+                icon="📜"
+                title="Certificación 2"
+                institution="Institución"
+                year="2022"
+                enableStars={false}
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                glowColor="0, 255, 64"
+                enableBorderGlow={false}
+              />
               
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">🎓</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Certificación 3</h3>
-                <p className="text-gray-300 mb-2">Institución</p>
-                <span className="text-green-400 text-sm">2021</span>
-              </div>
+              <MagicCard
+                icon="🎓"
+                title="Certificación 3"
+                institution="Institución"
+                year="2021"
+                enableStars={false}
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                glowColor="0, 255, 64"
+                enableBorderGlow={false}
+              />
 
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">🎓</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Certificación 3</h3>
-                <p className="text-gray-300 mb-2">Institución</p>
-                <span className="text-green-400 text-sm">2021</span>
-              </div>
+              <MagicCard
+                icon="🎓"
+                title="Certificación 3"
+                institution="Institución"
+                year="2021"
+                enableStars={false}
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                glowColor="0, 255, 64"
+                enableBorderGlow={false}
+              />
               
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">🎓</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Certificación 3</h3>
-                <p className="text-gray-300 mb-2">Institución</p>
-                <span className="text-green-400 text-sm">2021</span>
-              </div>
+              <MagicCard
+                icon="🎓"
+                title="Certificación 3"
+                institution="Institución"
+                year="2021"
+                enableStars={false}
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                glowColor="0, 255, 64"
+                enableBorderGlow={false}
+              />
               
-              <div className="bg-neutral-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-green-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl">🎓</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Certificación 3</h3>
-                <p className="text-gray-300 mb-2">Institución</p>
-                <span className="text-green-400 text-sm">2021</span>
-              </div>
+              <MagicCard
+                icon="🎓"
+                title="Certificación 3"
+                institution="Institución"
+                year="2021"
+                enableStars={false}
+                enableTilt={true}
+                enableMagnetism={true}
+                clickEffect={true}
+                glowColor="0, 255, 64"
+                enableBorderGlow={false}
+              />
               
             </div>
           </div>

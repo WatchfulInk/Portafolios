@@ -55,7 +55,7 @@ function Contact() {
                       </div>
                       <div>
                         <p className="font-semibold">Email</p>
-                        <p className="text-gray-300">tu-email@ejemplo.com</p>
+                        <p className="text-gray-300">alan-bella@hotmail.com</p>
                       </div>
                     </div>
                     
@@ -65,7 +65,7 @@ function Contact() {
                       </div>
                       <div>
                         <p className="font-semibold">LinkedIn</p>
-                        <p className="text-gray-300">linkedin.com/in/tu-perfil</p>
+                        <p className="text-gray-300">www.linkedin.com/in/alanbella</p>
                       </div>
                     </div>
                     
@@ -75,7 +75,7 @@ function Contact() {
                       </div>
                       <div>
                         <p className="font-semibold">GitHub</p>
-                        <p className="text-gray-300">github.com/tu-usuario</p>
+                        <p className="text-gray-300">https://github.com/WatchfulInk</p>
                       </div>
                     </div>
                   </div>
