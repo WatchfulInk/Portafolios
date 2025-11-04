@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+/* Global background color matching all pages */
+html, body, #root {
+  background-color: #0B0614;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Compensate for fixed navbar */
+.page-container {
+  padding-top: 70px; /* Default for mobile */
+}
+
+@media (min-width: 640px) {
+  .page-container {
+    padding-top: 75px; /* Small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding-top: 85px; /* Medium screens and up */
+  }
+}

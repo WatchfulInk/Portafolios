@@ -24,7 +24,7 @@ const techLogos = [
 
 function Homepage() {
   return (
-    <div className="bg-[#0B0614] min-h-screen text-white relative overflow-hidden">
+    <div className="bg-[#0B0614] min-h-screen text-white relative overflow-hidden page-container">
       {/* background animation */}
       <div 
         className="fixed inset-0 w-full h-full pointer-events-none"
@@ -66,7 +66,7 @@ function Homepage() {
           </div>
 
           {/* Componente MyPhoto - responsive para todas las pantallas */}
-          <div className="flex justify-center lg:justify-end w-full lg:w-auto mt-6 lg:mt-0 lg:px-30">
+          <div className="flex justify-center lg:justify-end w-full lg:w-auto mt-6 lg:mt-0 lg:px-40">
             <MyPhoto 
               imageSrc={meImage}
               badges={[
